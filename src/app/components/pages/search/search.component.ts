@@ -13,7 +13,7 @@ export class SearchComponent {
     activatedRoute.params.subscribe((params)=>{
       if(params.searchTerm)
       this.searchTerm = params.searchTerm;
-    })
+    });
   }
 
   ngOnInit():void {

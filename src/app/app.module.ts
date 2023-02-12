@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { SearchComponent } from './components/pages/search/search.component';
 import { FoodPageComponent } from './components/pages/food-page/food-page.component';
+import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FoodPageComponent } from './components/pages/food-page/food-page.compon
     HomeComponent,
     SearchComponent,
     FoodPageComponent,
+    CartPageComponent,
   ],
   imports: [
     BrowserModule,
