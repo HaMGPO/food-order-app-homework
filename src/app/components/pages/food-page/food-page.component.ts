@@ -10,6 +10,8 @@ import { food } from 'src/app/shared/model/Food';
   templateUrl: './food-page.component.html',
   styleUrls: ['./food-page.component.css']
 })
+
+
 export class FoodPageComponent implements OnInit{
   food!:food;
   constructor(activatedRoute:ActivatedRoute, private api:FoodService, private cartService:CartService, private router: Router){
@@ -18,6 +20,7 @@ export class FoodPageComponent implements OnInit{
       this.food = api.getFoodById(params.id)
     })
   }
+
   ngOnInit(): void {
 
   }
