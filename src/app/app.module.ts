@@ -10,6 +10,7 @@ import { SearchComponent } from './components/pages/search/search.component';
 import { FoodPageComponent } from './components/pages/food-page/food-page.component';
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { TitleComponent } from './components/pages/title/title.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TitleComponent } from './components/pages/title/title.component';
     FoodPageComponent,
     CartPageComponent,
     TitleComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

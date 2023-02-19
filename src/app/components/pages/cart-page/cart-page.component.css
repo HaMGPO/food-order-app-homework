@@ -48,10 +48,15 @@ li div:not(:first-child){
 li select{
   width: 3rem;
   outline: none;
-  border: none;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 5px;
   border-radius: 1px solid lightgray;
   font-size: 1.1rem;
   font-weight: 200;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
 li .remove-button{
