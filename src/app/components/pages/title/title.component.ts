@@ -6,21 +6,18 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./title.component.css']
 })
 export class TitleComponent implements OnInit {
+  constructor(){}
 
+  @Input()
+  title!: string;
 
- constructor(){}
+  @Input()
+  margin?= "1rem 0 1rem 0.2rem";
 
- @Input()
- title!:string;
+  @Input()
+  fontSize?: '1.7rem'
 
- @Input()
- margin?='1rem 0 1rem 0.2rem';
-
- @Input()
- fontSize?:'1.7rem';
-
-  ngOnInit(): void {
-
+  ngOnInit(): void{
+    
   }
-
 }

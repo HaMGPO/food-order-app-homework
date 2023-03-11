@@ -1,5 +1,4 @@
 <app-search></app-search>
-<app-not-found [visible]="!foods || !foods.length" resetLinkText="Reset Search"></app-not-found>
 <ul>
   <li *ngFor="let food of foods">
     <a routerLink="/food/{{food.id}}">
@@ -17,7 +16,7 @@
           <div class="origins">
             <span *ngFor="let origin of food.origins">
               {{origin}}
-            </span>
+             </span>
           </div>
           <div class="price-time">
             <div class="cook-time">

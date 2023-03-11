@@ -10,10 +10,9 @@ import { food } from 'src/app/shared/model/Food';
   templateUrl: './food-page.component.html',
   styleUrls: ['./food-page.component.css']
 })
-
-
 export class FoodPageComponent implements OnInit{
   food!:food;
+
   constructor(activatedRoute:ActivatedRoute, private api:FoodService, private cartService:CartService, private router: Router){
     activatedRoute.params.subscribe((params) => {
       if(params.id)
@@ -24,11 +23,10 @@ export class FoodPageComponent implements OnInit{
   ngOnInit(): void {
 
   }
-  // Add to cart Button code
+
+  // Add to cart button
   addToCart(){
     this.cartService.addToCart(this.food);
     this.router.navigateByUrl('/cart-page')
   }
-
-
 }
