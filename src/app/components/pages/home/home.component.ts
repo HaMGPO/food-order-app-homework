@@ -10,14 +10,18 @@ import { food } from 'src/app/shared/model/Food';
 })
 export class HomeComponent implements OnInit {
   foods:food[] = []
-  constructor(private api:FoodService, activateRoute:ActivatedRoute){
-    activateRoute.params.subscribe((params)=>{
-      if(params.searchTerm)
-      this.foods= this.api.getAllFoodBySearchTerm(params.searchTerm)
-      else
-      this.foods = api.getAll()  //get all data return
-    })
-
+  constructor(private api: FoodService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      if (params.searchTerm) {
+        this.api.getAllFoodBySearchTerm(params.searchTerm).subscribe(result => {
+          this.foods = result;
+        });
+      } else {
+        this.api.getAll().subscribe(result => {
+          this.foods = result;
+        });
+      }
+    });
   }
 
   ngOnInit(): void {

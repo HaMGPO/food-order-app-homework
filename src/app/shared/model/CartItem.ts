@@ -1,7 +1,9 @@
-import { food } from './Food';
-export class CartItem {
-  constructor(public food: food) {}
+import { food } from "./Food";
+export class CartItem{
 
-  quantity: number = 1;
-  price: number = this.food.price;
+
+  constructor(public food:food){}
+
+  quantity:number =1;
+  price:number = this.food.price;
 }

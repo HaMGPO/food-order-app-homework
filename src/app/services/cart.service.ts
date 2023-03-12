@@ -18,14 +18,14 @@ export class CartService {
     if(cartItem)
     return;
 
-    this.cart.items.push(new CartItem(food));
-    this.setCartLocalStorage();
+    this.cart.items.push(new CartItem(food))
+    this.setCartToLocalStorage();
   }
 
   // Remove Cart item
   removeFromCart(foodId:string):void{
-    this.cart.items = this.cart.items.filter((item: { food: { id: string; }; }) => item.food.id != foodId);
-    this.setCartLocalStorage();
+    this.cart.items = this.cart.items.filter((item: { food: { id: string; }; }) => item.food.id != foodId)
+    this.setCartToLocalStorage();
   }
 
   // change Quantity
@@ -34,37 +34,38 @@ export class CartService {
     if(!cartItem)
     return;
 
-
     cartItem.quantity = quantity;
     cartItem.price = quantity * cartItem.food.price;
-    this.setCartLocalStorage();
+    this.setCartToLocalStorage();
   }
 
-  // clear cart
-  clearCart():void{
+  // clear Cart
+  clearCart(){
     this.cart = new Cart();
-    this.cartSubject.next(this.cart);
-    this.setCartLocalStorage();
+    this.setCartToLocalStorage();
   }
 
-  // get cart observable means check observe data
+  // get cart observable mean check observable data
   getCartObservable():Observable<Cart>{
     return this.cartSubject.asObservable();
   }
 
-  // now start local storage data
-  private setCartLocalStorage():void{
-    this.cart.totalPrice = this.cart.items.reduce((prevSum: any, currentItem: { price: any; }) => prevSum + currentItem.price, 0);
-    this.cart.totalCount = this.cart.items.reduce((prevSum: any, currentItem: { quantity: any; }) => prevSum + currentItem.quantity, 0);
+  // now set Local storage data
+  private setCartToLocalStorage():void{
+    this.cart.totalPrice = this.cart.items.reduce((prevSum: any, currentItem: { price: any; }) => prevSum + currentItem.price, 0)
+    this.cart.totalCount = this.cart.items.reduce((prevSum: any, currentItem: {
+      quantity: any; price: any;
+}) => prevSum + currentItem.quantity, 0)
 
-    const cartJson = JSON.stringify(this.cart);
-    localStorage.setItem('cart', cartJson);
-    this.cartSubject.next(this.cart);
+const cartJson = JSON.stringify(this.cart);
+localStorage.setItem('Cart', cartJson);
+this.cartSubject.next(this.cart)
   }
 
   // when ever set local storage data then also get data
   private getCartFromLocalStorage():Cart{
-    const cartJson = localStorage.getItem('cart');
-    return cartJson?JSON.parse(cartJson):new Cart();
+    const cartJson = localStorage.getItem('Cart');
+    return cartJson?JSON.parse(cartJson): new Cart();
   }
+
 }
