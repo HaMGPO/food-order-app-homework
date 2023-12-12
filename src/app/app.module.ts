@@ -13,6 +13,7 @@ import { TitleComponent } from './components/pages/title/title.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { LoginComponent } from './components/login/login.component';
     AppRoutingModule,
     RatingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
