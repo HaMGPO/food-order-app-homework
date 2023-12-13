@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FoodService } from 'src/app/services/food.service';
-import { food } from 'src/app/shared/model/Food';
+import { foodDto } from 'src/app/shared/model/FoodDto';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./food-page.component.css']
 })
 export class FoodPageComponent implements OnInit {
-  food!: food;
+  food!: foodDto;
 
   constructor(
     private api: FoodService,

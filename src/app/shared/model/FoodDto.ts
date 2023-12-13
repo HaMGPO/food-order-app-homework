@@ -1,4 +1,4 @@
-export class food{
+export class foodDto{
   id!: string;
   name!: string;
   price!: number;

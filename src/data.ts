@@ -1,7 +1,7 @@
-import { food } from "./app/shared/model/Food";
+import { foodDto } from "./app/shared/model/FoodDto";
 
 
-export const sample_foods: food[] = [
+export const sample_foods: foodDto[] = [
     {
       id:'1',
       name: 'Pizza Pepperoni',
