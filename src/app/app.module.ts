@@ -11,9 +11,10 @@ import { FoodPageComponent } from './components/pages/food-page/food-page.compon
 import { CartPageComponent } from './components/pages/cart-page/cart-page.component';
 import { TitleComponent } from './components/pages/title/title.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/pages/login/login.component';
 import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     RatingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

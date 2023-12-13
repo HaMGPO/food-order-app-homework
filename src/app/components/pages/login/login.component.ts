@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +13,15 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-  ) {}
+    private loginService: LoginService  
+    ) {}
 
   onNoClick(): void {
    
   }
 
   onSubmit() {
-    let redirectTo = '/dashboard';
+    let redirectTo = '/';
     if (this.validarData("hpinto", "12345")) {
       redirectTo = '/error';
     }
