@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Cart } from '../shared/model/Cart';
-import { food } from '../shared/model/Food';
-import { CartItem } from '../shared/model/CartItem';
+import { CartDto } from '../shared/model/CartDto';
+import { foodDto } from '../shared/model/FoodDto';
+import { CartItemDto } from '../shared/model/CartItemDto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cart:Cart = new Cart();
-  private cartSubject:BehaviorSubject<Cart> =new BehaviorSubject(this.cart)
+  private cart:CartDto = new CartDto();
+  private cartSubject:BehaviorSubject<CartDto> =new BehaviorSubject(this.cart)
   constructor() { }
 
   // add to cart method
-  addToCart(food:food):void{
+  addToCart(food:foodDto):void{
     let cartItem= this.cart.items.find((item: { food: { id: string; }; }) => item.food.id === food.id)
     if(cartItem)
     return;
 
-    this.cart.items.push(new CartItem(food))
+    this.cart.items.push(new CartItemDto(food))
     this.setCartToLocalStorage();
   }
 
@@ -41,12 +41,12 @@ export class CartService {
 
   // clear Cart
   clearCart(){
-    this.cart = new Cart();
+    this.cart = new CartDto();
     this.setCartToLocalStorage();
   }
 
   // get cart observable mean check observable data
-  getCartObservable():Observable<Cart>{
+  getCartObservable():Observable<CartDto>{
     return this.cartSubject.asObservable();
   }
 
@@ -63,9 +63,9 @@ this.cartSubject.next(this.cart)
   }
 
   // when ever set local storage data then also get data
-  private getCartFromLocalStorage():Cart{
+  private getCartFromLocalStorage():CartDto{
     const cartJson = localStorage.getItem('Cart');
-    return cartJson?JSON.parse(cartJson): new Cart();
+    return cartJson?JSON.parse(cartJson): new CartDto();
   }
 
   
