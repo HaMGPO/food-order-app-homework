@@ -1,0 +1,5 @@
+1.-Make a funtional login component
+2.-Make a functional profile and order component
+2.5 .- Change app's topic to animals
+3.-Handle sessions in order to allow 
+--Create API for products
