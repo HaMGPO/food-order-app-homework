@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { LocalService } from 'src/app/services/local.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HeaderComponent implements OnInit{
   cartQuantity = 0;
-  constructor(cartService: CartService){
+  constructor(cartService: CartService, localStorage:LocalService){
     cartService.getCartObservable().subscribe((newCart: { totalCount: number; }) => {
       this.cartQuantity = newCart.totalCount;
     })
@@ -17,5 +18,10 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
 
+  }
+
+  logout(): void {
+    localStorage.clear;
+    console.log("Se limpia el almacenamiento")
   }
 }

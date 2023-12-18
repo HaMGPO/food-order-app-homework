@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LocalService } from 'src/app/services/local.service';
 import { PetsService } from 'src/app/services/pets.service';
 import { MascotaDto } from 'src/app/shared/model/MascotaDto';
 import { VisitaDto } from 'src/app/shared/model/VisitDto';
@@ -34,10 +35,12 @@ export class PetPageComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private apiMascota: PetsService
+    private apiMascota: PetsService,
+    private localStore: LocalService
   ) { }
 
   ngOnInit() {
+    this.localStore.checkPersistance();
     //procederemos a extraer el parametro id de la ruta del navegador
     this.id = +this.route.snapshot.paramMap.get('id')!;
     this.getMascota();

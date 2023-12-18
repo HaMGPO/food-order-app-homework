@@ -4,33 +4,42 @@ import { catchError } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { UserDto } from '../shared/model/UserDto'
 import { EncryptDecryptService } from './encrypt-decrypt.service';
+import { LoginDto } from '../shared/model/loginDto';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
+private hostUrl = "http://localhost:8084";
   private loginServiceUrl = '/v1/usuario/login';
   private visitServiceUrl = '/v1/mascotas';
 
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.localStorage.getData('bearer')}`
+    }
+    )
   };
 
   constructor(
     private http: HttpClient,
-    private encryptDecrypt: EncryptDecryptService
+    private encryptDecrypt: EncryptDecryptService,
+    private localStorage: LocalService
   ) { }
 
-  obtenerUsuario(usuario: UserDto): Observable<UserDto[]> {
+  login(usuario: LoginDto): Observable<any> {
 
-    // usuario.username = this.encryptDecrypt.encryptUsingAES256(usuario.username);
-    // usuario.password = this.encryptDecrypt.encryptUsingAES256(usuario.password);
-  
-    return this.http.post<UserDto[]>(this.loginServiceUrl, usuario, this.httpOptions).pipe(
-      catchError(this.handleError<UserDto[]>('autenticacion', []))
-    );
+    console.log(usuario);
+    return this.http.post<any>('http://localhost:8084/login', usuario, {headers: {'Content-Type': 'application/json'}});
+  }
+
+  obtenerUsuario(usuario: UserDto): Observable<UserDto> {
+
+    return this.http.post<UserDto>(this.hostUrl+this.loginServiceUrl, usuario, this.httpOptions);
   }
 
   addUsuario(usuario: UserDto): Observable<UserDto> {

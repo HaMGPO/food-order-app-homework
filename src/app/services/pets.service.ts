@@ -4,6 +4,7 @@ import { UserDto } from '../shared/model/UserDto';
 import { Observable, catchError, of } from 'rxjs';
 import { MascotaDto } from '../shared/model/MascotaDto';
 import { VisitaDto } from '../shared/model/VisitDto';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +14,16 @@ export class PetsService {
   private apiUrl = 'http://localhost:8084/v1/mascotas';
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${this.localStorage.getData('bearer')}`
+    }
+    )
   };
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private localStorage: LocalService
   ) { }
 
   public obtenerTodasMascotas(
@@ -29,7 +35,7 @@ export class PetsService {
     console.log('Obtener mascota Propietario');
 
     return this.http.get<MascotaDto[]>(url, this.httpOptions).pipe(
-      catchError(this.handleError<MascotaDto[]>('addHero'))
+      catchError(this.handleError<MascotaDto[]>('Obtener mascota Propietario'))
     );
   }
 

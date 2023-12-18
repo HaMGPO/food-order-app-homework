@@ -1,17 +1,16 @@
 <header>
   <div class="container">
-  <a routerLink="/" class="logo">Tc Food Corner</a>
+  <a routerLink="/home" class="logo">All Pets</a>
   <nav>
     <ul>
       <li class="menu-container">
-        <a routerLink="/dashboard">Options</a>
+        <a>Options</a>
         <div class="menu">
-          <a routerLink="/Profile">Your Profile</a>
-          <a routerLink="/login">Login</a> <!--Agregar opcion para cambiar dinamicamente en caso de tener sesion iniciada -->
+          <a routerLink="/login" (onclick)="logout()">Logout</a> <!--Agregar opcion para cambiar dinamicamente en caso de tener sesion iniciada -->
         </div>
       </li>
       <li>
-        <a routerLink="/cart-page">Cart <span *ngIf="cartQuantity">{{cartQuantity}}</span></a>
+        <a>Mas tarde...</a>
       </li>
     </ul>
   </nav>

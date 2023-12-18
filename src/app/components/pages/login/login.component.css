@@ -1,5 +1,11 @@
+@font-face {
+    src: url('../../../../assets/fonts/RubikScribble-Regular.ttf') format('truetype');
+    font-family: RubikScribble;
+    font-style: normal;
+}
 h2 {
-    color: #e72929
+    color: #e72929;
+    font-family: RubikScribble;
 }
 
 button {

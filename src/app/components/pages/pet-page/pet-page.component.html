@@ -31,7 +31,7 @@
         </tr>
         <tr>
             <td class="tg-0lax">
-            <label for="#fecha">fecha nacimiento: </label> 
+            <label for="#fecha">fecha nacimiento: {{this.mascota.fechaNacimiento?.toString()?.substring(0, 10)}} </label> 
             </td>
             <td class="tg-0lax"> <!--ngModel indica el uso del two way databindg value="{{mascota.fechaNacimiento}}"-->
             <input type="date"
@@ -155,7 +155,7 @@
     </form>
 
     <hr>
-
+<div class="table-responsive">
     <table class="table table-dark">
         <thead>
             <tr>
@@ -168,7 +168,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let visita of historialMascota">
+            <tr *ngFor="let visita of historialMascota.slice().reverse();">
 
             <th scope="row">{{visita.id}}</th>
             <td>
@@ -193,11 +193,13 @@
 
             </tr>
         </tbody>
-        </table>
-
-        <div *ngIf="historialMascota.length == 0">
-            <h3>NO HAY RESULTADOS</h3>
-        </div>
+    </table>
+    <div *ngIf="historialMascota.length == 0">
+        <h3>NO HAY RESULTADOS</h3>
+    </div>
+</div>
+    
+        
     
 </div>
 </div>

@@ -1,3 +1,19 @@
+@font-face {
+    src: url('../../../../assets/fonts/RubikScribble-Regular.ttf') format('truetype');
+    font-family: RubikScribble;
+    font-style: normal;
+}
+
+h2 {
+    color: #e72929;
+    font-family: RubikScribble;
+}
+
+h4 {
+    color: #e72929;
+    font-family: RubikScribble;
+}
+
 button {
     font-size: 1.1rem;
     background-color: #e72929;
@@ -9,10 +25,6 @@ button {
 
 input {
     margin: 10px;
-}
-
-h2 {
-    padding-bottom: 1rem;
 }
 
 .card {

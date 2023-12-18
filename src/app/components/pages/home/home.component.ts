@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FoodService } from 'src/app/services/food.service';
+import { LocalService } from 'src/app/services/local.service';
 import { PetsService } from 'src/app/services/pets.service';
 import { foodDto } from 'src/app/shared/model/FoodDto';
 import { MascotaDto } from 'src/app/shared/model/MascotaDto';
@@ -29,7 +30,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private apiMascota: PetsService
+    private apiMascota: PetsService,
+    public localStore: LocalService
     ) {
     this.route.params.subscribe(params => {
       console.log
@@ -49,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.localStore.checkPersistance();
   }
 
 }

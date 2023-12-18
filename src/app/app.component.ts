@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LocalService } from './services/local.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tcfoodcorner';
+  title = 'AllPets';
+
+  constructor(private localStore: LocalService) {
+
+  }
 }
