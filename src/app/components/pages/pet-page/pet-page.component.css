@@ -3,7 +3,13 @@
     font-family: RubikScribble;
     font-style: normal;
 }
+
 h2 {
+    color: #e72929;
+    font-family: RubikScribble;
+}
+
+h4 {
     color: #e72929;
     font-family: RubikScribble;
 }
@@ -12,22 +18,18 @@ button {
     font-size: 1.1rem;
     background-color: #e72929;
     color: whitesmoke;
-    border-radius: 10rem;
     padding: 0.7rem 1rem;
     margin-left: 1rem;
     opacity: 0.8;
 }
 
-div a {
-    color: #e72929
+input {
+    margin: 10px;
 }
 
 .card {
+    width: 70%;
     padding: 10px;
     padding-top: 20px;
     border-color: red;
-}
-
-.container {
-    height: 78vh;
 }

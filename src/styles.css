@@ -1,3 +1,16 @@
+@font-face {
+  src: url('./assets/fonts/FiraSansCondensed-Black.ttf') format('truetype');
+  font-family: FiraSansCondensed;
+  font-style: normal;
+}
+
+html *
+{
+   font-family: FiraSansCondensed;
+}
+
+body {background-color: #fbbc78;}
+
 *{
   margin: 0;
   padding: 0;
