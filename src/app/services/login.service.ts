@@ -34,7 +34,7 @@ private hostUrl = "http://localhost:8084";
   login(usuario: LoginDto): Observable<any> {
 
     console.log(usuario);
-    return this.http.post<any>('http://localhost:8084/login', usuario, {headers: {'Content-Type': 'application/json'}});
+    return this.http.post<any>('http://192.168.56.1:8084/login', usuario, {headers: {'Content-Type': 'application/json'}});
   }
 
   obtenerUsuario(usuario: UserDto): Observable<UserDto> {

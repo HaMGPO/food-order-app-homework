@@ -11,7 +11,7 @@ import { LocalService } from './local.service';
 })
 export class PetsService {
 
-  private apiUrl = 'http://localhost:8084/v1/mascotas';
+  private apiUrl = 'http://192.168.56.1:8084/v1/mascotas';
 
   httpOptions = {
     headers: new HttpHeaders({ 
