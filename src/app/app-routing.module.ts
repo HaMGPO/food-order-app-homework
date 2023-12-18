@@ -8,7 +8,7 @@ import { PetPageComponent } from './components/pages/pet-page/pet-page.component
 
 const routes: Routes = [
   {
-    path:'', component:HomeComponent
+    path: '', redirectTo: '/login', pathMatch: 'full' 
   },
   {
     path:'search/:searchTerm', component:HomeComponent

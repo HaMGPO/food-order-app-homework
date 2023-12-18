@@ -25,8 +25,8 @@ export class LoginService {
 
   obtenerUsuario(usuario: UserDto): Observable<UserDto[]> {
 
-    usuario.username = this.encryptDecrypt.encryptUsingAES256(usuario.username);
-    usuario.password = this.encryptDecrypt.encryptUsingAES256(usuario.password);
+    // usuario.username = this.encryptDecrypt.encryptUsingAES256(usuario.username);
+    // usuario.password = this.encryptDecrypt.encryptUsingAES256(usuario.password);
   
     return this.http.post<UserDto[]>(this.loginServiceUrl, usuario, this.httpOptions).pipe(
       catchError(this.handleError<UserDto[]>('autenticacion', []))

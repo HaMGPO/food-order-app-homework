@@ -53,7 +53,6 @@ export class PetPageComponent {
           this.registroVisita.mascotaId = tg.id;
           console.log(this.mascota);
           this.mascotaInfoData.controls['sexo'].setValue(tg.sexo!);
-          this.mascotaInfoData.controls['fechaNacimiento'].setValue(tg.fechaNacimiento!);
           this.apiMascota.obtenerVisitasMascota(tg.id!)
             .subscribe(
               (historial: VisitaDto[]) => this.historialMascota = historial
@@ -69,6 +68,7 @@ export class PetPageComponent {
   save(): void {
     if (this.mascota) {
       this.mascota.sexo = this.mascotaInfoData.get('sexo')?.value!;
+      this.mascota.fechaNacimiento! = this.mascotaInfoData.get('fechaNacimiento')!.value!;
       console.log(this.mascota);
       this.apiMascota.addSaveMascota(this.mascota)
         .subscribe(() => console.log());

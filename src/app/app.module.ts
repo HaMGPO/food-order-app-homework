@@ -16,6 +16,8 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PetPageComponent } from './components/pages/pet-page/pet-page.component';
+import { DateValueAccessor, DateValueAccessorModule } from 'angular-date-value-accessor';
+
 
 
 
@@ -39,6 +41,7 @@ import { PetPageComponent } from './components/pages/pet-page/pet-page.component
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    DateValueAccessor
   ],
   providers: [],
   bootstrap: [AppComponent]
