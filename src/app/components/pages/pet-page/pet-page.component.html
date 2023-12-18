@@ -1,0 +1,205 @@
+<div class=" container d-flex justify-content-center align-content-end flex-wrap">
+<div class="card" >
+<div *ngIf="mascota">
+
+    <form [formGroup]="mascotaInfoData">
+    <!-- La estructura de detalle que hemos visto con anterioridad pero atomizada -->
+    <h2>Detalles de {{mascota.nombre}}</h2>
+        <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-0lax"> 
+            id 
+            </th>
+            <th class="tg-0lax"> 
+            {{mascota.id}} 
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-0lax">
+            <label for="#nombre">nombre: </label> 
+            </td>
+            <td class="tg-0lax"> <!-- ngModel indica el uso del two way databindg -->
+            <input id="nombre" 
+                [(ngModel)]="mascota.nombre"
+                formControlName="nombre"
+                class="form-control" 
+                placeholder="name"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">
+            <label for="#fecha">fecha nacimiento: </label> 
+            </td>
+            <td class="tg-0lax"> <!--ngModel indica el uso del two way databindg value="{{mascota.fechaNacimiento}}"-->
+            <input type="date"
+                value="2017-04-01"
+                formControlName="fechaNacimiento"
+                class="form-control" 
+                id="fecha" 
+                aria-describedby="fechaRetorno" 
+                placeholder="Introduzca fecha de retorno">
+            </td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">
+            <label for="#series">sexo:</label>
+            </td>
+            <td class="tg-0lax">
+            <!-- ngModel indica el uso del two way databindg -->
+            <!-- <input id="sexo" type="number" placeholder="serie"/> -->
+            <select class="form-select" id="sexo" aria-label="Default select example" formControlName="sexo">
+                <option value="1">Macho</option>
+                <option value="2">Hembra</option>
+              </select>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+
+        <button
+            (click)="save()" 
+            mat-fab color="primary">
+            guardar
+        </button>
+
+        <button (click)="goBack()">atras</button>
+    </form> 
+    
+    <hr>
+
+    <form [formGroup]="visitaRegistroData">
+        <h4>Agregar Registro</h4>
+        <table class="tg">
+            <tr>
+                <td>
+                    <label for="fecha">Fecha</label>
+                </td>
+
+                <td>
+                    <input  type="date" class="form-control" 
+                        [(ngModel)]="registroVisita.fecha" formControlName="fecha"
+                        id="fecha" 
+                        aria-describedby="fecha" 
+                        placeholder="Enter email">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="fechaRetorno">Fecha Retorno</label>
+                </td>
+
+                <td>
+                    <input type="date"
+                        [(ngModel)]="registroVisita.fechaRetorno" formControlName="fechaRetorno"
+                        class="form-control" 
+                        id="fechaRetorno" 
+                        aria-describedby="fechaRetorno" 
+                        placeholder="Fecha de retorno">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="tratamiento">Tratamiento</label>
+                </td>
+
+                <td>
+                    <input type="text"
+                        [(ngModel)]="registroVisita.tratamiento" formControlName="tratamiento"
+                        class="form-control" 
+                        id="tratamiento" 
+                        aria-describedby="tratamientoMascota" 
+                        placeholder="Especifique el tratamiento">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="veterinaria">Veterinaria</label>
+                </td>
+
+                <td>
+                    <input type="text" 
+                        [(ngModel)]="registroVisita.nombreVeterinaria" formControlName="veterinaria"
+                        class="form-control" 
+                        id="veterinaria" 
+                        aria-describedby="nombreVeterinaria" 
+                        placeholder="nombre de la veterinaria">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="descripcion">Descripcion</label>
+                </td>
+
+                <td>
+                    <input type="email" 
+                        [(ngModel)]="registroVisita.descriptcion" formControlName="descripcion"
+                        class="form-control" 
+                        id="descripcion" 
+                        aria-describedby="emailHelp" 
+                        placeholder="Visita mas a fondo">
+                </td>
+            </tr>
+        </table>
+        <button
+            (click)="saveRegistro()" 
+            mat-fab color="primary" 
+            > <!--[disabled]="!(visitaRegistroData.valid)"-->
+            agregarRegistro
+        </button>
+    </form>
+
+    <hr>
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Fecha Retorno</th>
+            <th scope="col">Tratamiento</th>
+            <th scope="col">Veterinaria</th>
+            <th scope="col">Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let visita of historialMascota">
+
+            <th scope="row">{{visita.id}}</th>
+            <td>
+                {{visita.fecha?.toString()?.substring(0, 10)}}
+            </td>
+            
+            <td>
+                {{visita.fechaRetorno?.toString()?.substring(0, 10)}}
+            </td>
+
+            <td>
+                {{visita.tratamiento}}
+            </td>
+
+            <td>
+                {{visita.nombreVeterinaria}}
+            </td>
+
+            <td>
+                {{visita.descriptcion}}
+            </td>
+
+            </tr>
+        </tbody>
+        </table>
+
+        <div *ngIf="historialMascota.length == 0">
+            <h3>NO HAY RESULTADOS</h3>
+        </div>
+    
+</div>
+</div>
+</div>

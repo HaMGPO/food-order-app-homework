@@ -3,3 +3,12 @@
 2.5 .- Change app's topic to animals
 3.-Handle sessions in order to allow 
 --Create API for products
+
+---UPDATE
+1.-Make a funtional login component X
+2 .- Change app's topic to animals X
+    2.1 .- Create a funtion to look for pets base on user`s name or pet´s name X
+    2.2 .- Be able to update pet´s profile 
+    2.3 .- Be able to check / add pet visits logs X
+3.-Handle sessions in order to allow 
+--Create API for products

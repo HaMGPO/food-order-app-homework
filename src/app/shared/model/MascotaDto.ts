@@ -1,4 +1,8 @@
 
 export class MascotaDto{
-  id!: number;
+  id?: number;
+  nombre!: string;
+  fechaNacimiento?: Date;
+  sexo?: number;
+  propietarioId!: number;
 }

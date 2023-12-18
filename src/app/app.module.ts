@@ -14,6 +14,9 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/pages/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PetPageComponent } from './components/pages/pet-page/pet-page.component';
+
 
 
 @NgModule({
@@ -27,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     TitleComponent,
     NotFoundComponent,
     LoginComponent,
+    PetPageComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     RatingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+button {
+    font-size: 1.1rem;
+    background-color: #e72929;
+    color: whitesmoke;
+    padding: 0.7rem 1rem;
+    margin-left: 1rem;
+    opacity: 0.8;
+}
+
+input {
+    margin: 10px;
+}
+
+h2 {
+    padding-bottom: 1rem;
+}
+
+.card {
+    width: 70%;
+    padding: 10px;
+    padding-top: 20px;
+    border-color: red;
+}
